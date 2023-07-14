@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Create a new comment | DIY Blog &lt;3</title>
+{% endblock %}
+
+{% block content %}
+  <p>Post your comment for: <a href="{{ blogpost.get_absolute_url }}">{{ blogpost }}</a></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" />
+  </form>
+{% endblock %}

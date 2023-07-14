@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>All blogs | DIY Blog &lt;3</title>
+{% endblock title %}
+
+{% block content %}
+  <h1>All blogs</h1>
+  
+  {% if blogpost_list %}
+    <ul>
+      {% for blog in blogpost_list %}
+        <li>
+          <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
+          ({{ blog.created_at|default:"" }} — {{ blog.author }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no blogs on this site. - Yet</p>
+  {% endif %}
+{% endblock content %}
